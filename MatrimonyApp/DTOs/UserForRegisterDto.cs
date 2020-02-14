@@ -11,8 +11,8 @@ namespace MatrimonyApp.DTOs
         [Required]
         public string Username { get; set; }
 
-        [Required]
-        [EmailAddress]
+        [Required] 
+      
         [StringLength(8, MinimumLength = 4, ErrorMessage = "Password should be atleast 4 and maximun 8 characters long")]
         public string Password { get; set; }
     }

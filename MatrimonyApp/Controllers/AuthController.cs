@@ -19,11 +19,23 @@ namespace MatrimonyApp.Controllers
         {
             this.authRepository = _authRepository;
         }
+        [HttpGet("hi")]
+      
+        public ActionResult<IEnumerable<string>> Get()
+        {
+            return new string[] { "value1", "value2" };
+        }
+
+
 
         [HttpPost("register")]
         public async Task<IActionResult> Register(UserForRegisterDto userForRegisterDto)
         {
             //validate request
+            if(!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
             userForRegisterDto.Username = userForRegisterDto.Username.ToLower();
             if(await authRepository.UserExists(userForRegisterDto.Username))
             {
