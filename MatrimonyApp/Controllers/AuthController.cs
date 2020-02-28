@@ -26,7 +26,7 @@ namespace MatrimonyApp.Controllers
         {
             this.authRepository = _authRepository;
             this.configuration = _configuration;
-        }
+        } 
 
         [AllowAnonymous]
         [HttpPost("register")]
